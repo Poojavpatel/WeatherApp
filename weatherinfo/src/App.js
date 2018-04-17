@@ -12,20 +12,57 @@ import Weather from "./components/Weather"
 
 class App extends Component {
 
+  state = {
+    temprature:undefined,
+    city:undefined,
+    country:undefined,
+    humidity:undefined,
+    descripion:undefined,
+    error:undefined,
+  }
+
   getWeather = async(e) => {
     e.preventDefault();
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${api_key}`);
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${api_key}`);
     const data = await api_call.json();
-    console.log(data);  
+    if(city && country){
+      console.log(data);  
+      this.setState({
+        temprature:data.main.temp,
+        city:data.name,
+        country:data.sys.country,
+        humidity:data.main.humidity,
+        description:data.weather[0].description,
+        error:" ",
+      }) 
+    }else{
+      this.setState({
+        temprature:undefined,
+        city:undefined,
+        country:undefined,
+        humidity:undefined,
+        description:undefined,
+        error:"Please enter a value",
+      }) 
+    }
+    
   }
 
   render() {
     return (
       <div>
-        <p>It works </p>
         <Titles />
-        <Weather />
         <Form getWeather={this.getWeather}/>
+        <Weather 
+          temprature={this.state.temprature}
+          city = {this.state.city}
+          country = {this.state.country}
+          humidity = {this.state.humidity}
+          description = {this.state.description}
+          error = {this.state.error}
+        />
       </div>
     );
   }
