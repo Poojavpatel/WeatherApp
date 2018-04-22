@@ -81,7 +81,9 @@ class App extends Component {
               </form>*/}
             </div>
             <div className="stats">
+              {this.state.temprature &&
               <p>Statistics</p>
+              }
               <Weather 
                 temprature={this.state.temprature}
                 city = {this.state.city}
@@ -91,7 +93,7 @@ class App extends Component {
                 pressure = {this.state.pressure}
                 description = {this.state.description}
                 error = {this.state.error}
-              />/
+              />
               
               {/*<div class="statpairbox">
                 <div class="statpair">
