@@ -1,2 +1,169 @@
-/* Add your styles here */
-/* use cntrl+e instead of tab to use emmet */
+/***************************** DEFAULTS ***************************************/
+body{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5;
+	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
+}
+*,*::before,*::after{
+	box-sizing: border-box;
+}
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+/*************************** CSS CUSTOM VARIABLES SCSS********************************/
+:root{
+	--backgroundcolor:#EDEDED;
+	--darkgrey: #B3B3B3;
+	--lightgrey: #D5D5D5;
+	--verylightgrey: #;
+	--darkpink: #F3508D;
+	--sunny:linear-gradient(to top, #f77062 0%, #fe5196 100%);
+	--sunnyright:linear-gradient(to left, #f77062 0%, #fe5196 100%);;
+}
+/*******************************************************/
+.fullcontent{
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	background-color: var(--backgroundcolor);
+}
+.wrapper{
+	width:55%;
+	height: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	overflow: hidden;
+	border-radius: 8px;
+}
+.wrapper *{
+	margin: 0;
+	padding: 0;
+}
+.pic{
+	background-image: var(--sunny);
+	background-size: cover;
+	flex-basis:40%;
+	flex-grow:1;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 0% 0% 9% 7%;
+}
+.pic h1{
+	font-size: 6rem;
+	font-weight: 300;
+	margin-bottom: -15px;
+}
+.pic h2{
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+.info{
+	background-color: #FFFFFF;
+	flex-basis:60%;
+	flex-grow:1;
+	color: var(--darkgrey);
+	display: flex;
+	flex-direction: column;
+	padding: 5%;
+}
+.info .location{
+	flex-basis:25%;
+	flex-grow:1;
+	display: flex;
+}
+.info .location form{
+	margin: auto;
+}
+form input[type=text] {
+	width: 30%;
+	font-size: 1rem;
+    border: none;
+    border-bottom:4px solid transparent;
+    border-image-source: var(--sunnyright);
+    border-image-slice: 1;
+    border-image-width: 0 0 2px 0;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    padding: 4px 4px;
+	margin: 0px 8px 0px 0px;
+}
+form .btn{
+	font-size: 1rem;
+	color: white;
+	background: var(--sunnyright);
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 8px 14px;
+    border-radius: 2.2px;
+}
+.info .stats{
+	flex-basis:70%;
+	flex-grow:1;
+	display: flex;
+	flex-direction: column;
+}
+.stats p{
+	color: grey;
+	font-size: 1.2rem;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid var(--lightgrey);
+	margin-bottom: 0.5rem;
+	margin-top: 4%;
+}
+.statpairbox{
+	flex-grow: 1;
+	display: flex;
+	flex-direction:column;
+	flex-wrap:nowrap;
+	justify-content: space-evenly;
+}
+.statpairbox .statpair{
+	font-size: 1.1rem;
+	color: grey;
+	display: flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	justify-content: space-between;
+	margin: 0rem 0rem 1rem 0rem;
+}
+.statpair .statvalue{
+	color: var(--darkpink);
+}
+
+
+
+
+
+
+
+
+
+
+/************************** media query ************************/
+@media screen and (max-width:1000px ){
+	.wrapper{
+		width: 80%;
+	}
+}
+@media screen and (max-width:480px ){
+	.wrapper{
+		flex-direction:column;
+	}
+}
+
+
+
+
+
+
+
